@@ -31,8 +31,9 @@ or
 
     cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu:15.04 bash -x 
 
-    cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu bash -x  # this uses 14.04 (LTS)
+or using 14.04 (LTS)
 
+    cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu bash -x 
 
 # but if you do
 
