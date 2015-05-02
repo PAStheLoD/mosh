@@ -2,7 +2,7 @@
 Just hosting a mosh built with SSH Agent Forwarding
 
 
-https://github.com/keithw/mosh ->  https://github.com/keithw/mosh/issues/120 -> https://github.com/keithw/mosh/pull/583 ->
+https://github.com/keithw/mosh ->  https://github.com/keithw/mosh/issues/120 -> https://github.com/keithw/mosh/pull/583 -> https://github.com/kevinr/mosh.git
 
 # how to reproduce (so you don't have to trust this blob)
 
