@@ -20,14 +20,39 @@ or
             build-essential devscripts libutempter-dev \
             libncurses5-dev dh-autoreconf protobuf-compiler \
             libprotobuf-dev pkg-config libutempter-dev \
-            zlib1g-dev libncurses5-dev libssl-dev
+            zlib1g-dev libncurses5-dev libssl-dev \
+            g++-4.8
 
 ## build a .deb package
 
+    CXX=g++-4.8 dpkg-buildpackage -b -us -uc
 
-    dpkg-buildpackage -b -us -uc
+# Docker-fancy
+
+    cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu:15.04 bash -x 
+
+    cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu bash -x  # this uses 14.04 (LTS)
+
 
 # but if you do
 
     wget https://github.com/PAStheLoD/mosh/raw/master/mosh_1.2.4a-1_amd64.deb -O mosh.deb \
-    && sudo dpkg -i mosh.deb
+    && sudo apt-get install -y mosh && sudo dpkg -i mosh.deb
+
+# and don't forget to please the locale gods
+
+## globally
+
+    echo "export LC_ALL=C.UTF-8 ; export LANG=C.UTF-8 ;" > /tmp/lang
+    cp /etc/bash.bashrc /etc/bash.bashrc.premosh
+    cat /tmp/lang /etc/bash.bashrc > /etc/bash.bashrc.
+    mv /etc/bash.bashrc. /etc/bash.bashrc
+
+
+## per user
+
+    echo "export LC_ALL=C.UTF-8 ; export LANG=C.UTF-8 ;" > /tmp/lang
+    cp ~/.bashrc ~/.bashrc.premosh
+    cat /tmp/lang ~/.bashrc > ~/.bashrc.
+    mv ~/.bashrc. ~/.bashrc
+
