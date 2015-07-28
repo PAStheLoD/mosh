@@ -11,9 +11,10 @@ apt-get install -y --no-install-recommends \
 	wget unzip build-essential devscripts dh-autoreconf \
 	protobuf-compiler libprotobuf-dev pkg-config libutempter-dev zlib1g-dev libncurses5-dev libssl-dev
 
-wget --no-check-certificate https://github.com/kevinr/mosh/archive/kevinr-ssh-agent-forwarding.zip && \
-unzip kevinr-ssh-agent-forwarding.zip && \
-cd mosh-kevinr-ssh-agent-forwarding/
+BALL=https://github.com/rinne/mosh/archive/ssh-agent-forwarding-ng.zip
+wget --no-check-certificate $BALL -O ball.zip && \
+unzip ball.zip && \
+cd $(echo ${BALL##$(dirname $BALL)} | tr -d '/')
 
 dch --nmu "added agent forwarding patch"
 
