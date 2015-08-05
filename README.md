@@ -6,13 +6,13 @@ https://github.com/keithw/mosh ->  https://github.com/keithw/mosh/issues/120 -> 
 
 # how to reproduce (so you don't have to trust this blob)
 
-    git clone https://github.com/kevinr/mosh.git \
+    git clone https://github.com/rinne/mosh.git \
     && cd mosh \
-    && git checkout kevinr-ssh-agent-forwarding
+    && git checkout ssh-agent-forwarding-ng
 or
-    wget https://github.com/kevinr/mosh/archive/kevinr-ssh-agent-forwarding.zip \
-    && unzip kevinr-ssh-agent-forwarding.zip \
-    && cd mosh-kevinr-ssh-agent-forwarding/
+    wget https://github.com/rinne/mosh/archive/ssh-agent-forwarding.zip \
+    && unzip ssh-agent-forwarding.zip \
+    && cd mosh-ssh-agent-forwarding/
 
 ## quick install dependencies
 
@@ -21,7 +21,7 @@ or
             libncurses5-dev dh-autoreconf protobuf-compiler \
             libprotobuf-dev pkg-config libutempter-dev \
             zlib1g-dev libncurses5-dev libssl-dev \
-            g++-4.8
+            g++-4.8 bash-completion
 
 ## build a .deb package
 
@@ -29,11 +29,11 @@ or
 
 # Docker-fancy
 
-    cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu:15.04 bash -x 
+    cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu:15.04 bash -x
 
 or using 14.04 (LTS)
 
-    cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu bash -x 
+    cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu bash -x
 
 # but if you do
 
