@@ -2,7 +2,7 @@
 Just hosting a mosh built with SSH Agent Forwarding
 
 
-https://github.com/keithw/mosh ->  https://github.com/keithw/mosh/issues/120 -> https://github.com/keithw/mosh/pull/583 -> https://github.com/kevinr/mosh.git
+https://github.com/keithw/mosh ->  https://github.com/keithw/mosh/issues/120 -> https://github.com/keithw/mosh/pull/583 -> https://github.com/rinne/mosh/tree/ssh-agent-forwarding-ng
 
 # how to reproduce (so you don't have to trust this blob)
 
@@ -37,7 +37,7 @@ or using 14.04 (LTS)
 
 # but if you do
 
-    wget https://github.com/PAStheLoD/mosh/raw/master/mosh_1.2.4a-1_amd64.deb -O mosh.deb \
+    wget https://github.com/PAStheLoD/mosh/releases/download/1.2.4.95rc2-1.1/mosh_1.2.4.95rc2-1.1_amd64.deb -O mosh.deb \
     && sudo apt-get install -y mosh && sudo dpkg -i mosh.deb
 
 # and don't forget to please the locale gods
