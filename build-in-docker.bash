@@ -8,13 +8,15 @@ perl -e 'use IO::Socket::INET; $s = new IO::Socket::INET(PeerAddr => "172.17.42.
 
 apt-get update
 apt-get install -y --no-install-recommends \
-	wget unzip build-essential devscripts dh-autoreconf \
+	wget unzip build-essential devscripts dh-autoreconf bash-completion \
 	protobuf-compiler libprotobuf-dev pkg-config libutempter-dev zlib1g-dev libncurses5-dev libssl-dev
 
 BALL=https://github.com/rinne/mosh/archive/ssh-agent-forwarding-ng.zip
 wget --no-check-certificate $BALL -O ball.zip && \
-unzip ball.zip && \
-cd $(echo ${BALL##$(dirname $BALL)} | tr -d '/')
+
+D=$(unzip -l ball.zip  | grep -Po '(?: 0\s*[0-9: -]+\s*)\K[a-z0-9_-]+/$')
+unzip ball.zip && cd $D
+
 
 dch --nmu "added agent forwarding patch"
 
