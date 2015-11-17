@@ -11,14 +11,14 @@ apt-get install -y --no-install-recommends \
 	wget unzip build-essential devscripts dh-autoreconf bash-completion \
 	protobuf-compiler libprotobuf-dev pkg-config libutempter-dev zlib1g-dev libncurses5-dev libssl-dev
 
-BALL=https://github.com/rinne/mosh/archive/ssh-agent-forwarding-ng.zip
+BALL=https://github.com/PAStheLoD/mosh-src/archive/ssh-agent-forwarding-ng.zip
 wget --no-check-certificate $BALL -O ball.zip && \
 
 D=$(unzip -l ball.zip  | grep -Po '(?: 0\s*[0-9: -]+\s*)\K[a-z0-9_-]+/$')
 unzip ball.zip && cd $D
 
 
-dch --nmu "added agent forwarding patch"
+dch -v 1.9.99 "added agent forwarding patch"
 
 if [[ $(g++ --version | grep 4.9 | wc -l ) = 1 ]] ; then
 	apt-get install -y g++-4.8

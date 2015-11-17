@@ -29,7 +29,7 @@ or
 
 # Docker-fancy
 
-    cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu:15.04 bash -x
+    cat build-in-docker.bash | sudo docker run -i -v $(readlink -f ./mosh-deb):/opt ubuntu:15.10 bash -x
 
 or using 14.04 (LTS)
 
