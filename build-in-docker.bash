@@ -18,7 +18,7 @@ D=$(unzip -l ball.zip  | grep -Po '(?: 0\s*[0-9: -]+\s*)\K[a-z0-9_-]+/$')
 unzip ball.zip && cd $D
 
 
-dch -v 1.9.99 "added agent forwarding patch"
+dch -v 1.9.99~$(lsb_release -cs) "added agent forwarding patch"
 
 if [[ $(g++ --version | grep 4.9 | wc -l ) = 1 ]] ; then
 	apt-get install -y g++-4.8
